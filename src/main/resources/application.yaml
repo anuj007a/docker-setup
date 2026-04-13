@@ -1,0 +1,27 @@
+# src/main/resources/application.yml
+
+spring:
+  # 1. Application Metadata
+  application:
+    name: docker-setup
+
+  # 2. Database Connection Configuration
+  datasource:
+    # JDBC URL for local PostgreSQL instance (default port 5432)
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    # ⬇️ CORRECTION: Enclose the password in quotes ⬇️
+    password: 'postgres_Login@25'
+    driver-class-name: org.postgresql.Driver
+
+  # 3. JPA/Hibernate Configuration
+  jpa:
+    hibernate:
+      # 'update' tells Hibernate to create the table if it doesn't exist.
+      ddl-auto: update
+    properties:
+      hibernate:
+        # Format the SQL for cleaner console output
+        format_sql: true
+    # Show the SQL queries executed by Hibernate in the console
+    show-sql: true
